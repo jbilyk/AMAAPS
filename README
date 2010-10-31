@@ -1,0 +1,16 @@
+README for AMAAPS
+
+Purpose:        To take entries from the database used by OpenAudit and
+                insert them into the database used by NagioSQL so that
+                new hosts will be monitored automatically by Nagios.
+                Once new hosts are in the database, trigger a file write
+                so that config files for Nagios will be updated and the
+                service is ready to be reloaded.
+Implementation: Two MySQL databases are accessed: OpenAudit and 
+                db_nagiosql_v3.  First, servers that are running Microsoft
+                Windows Server operating systems are selected and added
+                to the windowsservers hostgroup in Nagios.  Then, the following
+                software is detected and added to a hostgroup for each:
+                Exchange, SQL Server, Lotus Domino.
+				
+The initial platform of choice will be Alpine Linux, however the code should be portable to other *NIX OSes as well.
